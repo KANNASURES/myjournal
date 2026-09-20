@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Lumio — Your private, beautiful personal journal. Write, reflect, and grow every day." />
+  <meta name="author" content="KANNASURESH" />
+  <meta property="og:title" content="Lumio — Your Personal Journal" />
+  <meta property="og:description" content="Write your story, one day at a time." />
+  <title>Lumio — Your Personal Journal</title>
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE FONTS
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════
+       BOOTSTRAP 5.3
+  ═══════════════════════════════════════════ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════
+       FLATICON (Bootstrap Icons as fallback — free & reliable)
+  ═══════════════════════════════════════════ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════
+       AOS — Animate On Scroll
+  ═══════════════════════════════════════════ -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════
+       OUR CSS FILES (ORDER MATTERS)
+  ═══════════════════════════════════════════ -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/landing.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1: NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="lumio-nav" id="mainNav">
+    <div class="container">
+      <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Lumio</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+        </ul>
+
+        <!-- Right Controls -->
+        <div class="nav-actions">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+          </button>
+          <a href="login.html" class="btn-ghost">Sign In</a>
+          <a href="register.html" class="btn-primary-lumio">Start Writing</a>
+          <!-- Hamburger (mobile) -->
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Stories</a></li>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="register.html" class="mobile-cta">Start Writing — It's Free</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2: HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero-section" id="hero">
+
+    <!-- Particle Background Canvas -->
+    <div id="particles-js"></div>
+
+    <!-- Aurora Glow Blobs (CSS animated) -->
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+
+    <div class="container hero-container">
+
+      <!-- Left: Text Content -->
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="900">
+        <span class="hero-badge">
+          <i class="bi bi-stars"></i> Your private sanctuary
+        </span>
+        <h1 class="hero-title">
+          Write your story,<br />
+          <em>one day at a time.</em>
+        </h1>
+        <p class="hero-subtitle">
+          Lumio is your beautiful, private journal — where your thoughts are safe,
+          your memories are preserved, and your growth is celebrated.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn-primary-lumio btn-large">
+            <i class="bi bi-pencil-fill"></i> Start Journaling Free
+          </a>
+          <a href="#features" class="btn-ghost btn-large">
+            See how it works <i class="bi bi-arrow-down-short"></i>
+          </a>
+        </div>
+        <div class="hero-social-proof">
+          <div class="proof-avatars">
+            <span class="proof-avatar">K</span>
+            <span class="proof-avatar">A</span>
+            <span class="proof-avatar">M</span>
+            <span class="proof-avatar">S</span>
+          </div>
+          <p>Join <strong>10,000+</strong> writers who journal daily with Lumio</p>
+        </div>
+      </div>
+
+      <!-- Right: 3D Floating Journal Card -->
+      <div class="hero-visual" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
+        <div class="journal-card-3d" id="journalCard">
+          <div class="journal-card-inner">
+            <div class="journal-card-header">
+              <span class="jc-date">Sunday, Sep 20, 2026</span>
+              <span class="jc-mood">😌</span>
+            </div>
+            <h3 class="jc-title">Today was quiet and golden</h3>
+            <p class="jc-body">
+              Woke up to soft rain. Made chai, opened the window, and just listened.
+              There's something beautiful about doing nothing perfectly...
+            </p>
+            <div class="jc-tags">
+              <span class="jc-tag">#peaceful</span>
+              <span class="jc-tag">#morning</span>
+              <span class="jc-tag">#gratitude</span>
+            </div>
+            <div class="jc-footer">
+              <i class="bi bi-lock-fill"></i> Private · 142 words
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badge elements around the card -->
+        <div class="float-badge badge-streak">
+          <i class="bi bi-fire"></i> 21-day streak!
+        </div>
+        <div class="float-badge badge-mood">
+          <i class="bi bi-emoji-smile-fill"></i> Mood tracked
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 3: FEATURES
+  ═══════════════════════════════════════ -->
+  <section class="features-section" id="features">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Everything you need</span>
+        <h2 class="section-title">Built for the way you think</h2>
+        <p class="section-subtitle">
+          Every feature in Lumio exists for one reason — to make your journaling
+          feel effortless, personal, and worth coming back to.
+        </p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <h3>End-to-End Private</h3>
+          <p>Your journal is yours alone. No ads, no data sharing, no reading your thoughts. Ever.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-emoji-heart-eyes-fill"></i>
+          </div>
+          <h3>Daily Mood Tracker</h3>
+          <p>Log how you feel each day with expressive emojis and watch your emotional patterns emerge over time.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-pen-fill"></i>
+          </div>
+          <h3>Rich Text Editor</h3>
+          <p>Bold, italic, lists, quotes — write the way your mind works, with a distraction-free full-screen editor.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-calendar3"></i>
+          </div>
+          <h3>Memory Calendar</h3>
+          <p>Browse entries by date on a beautiful calendar. Revisit any day in your life with a single click.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-tags-fill"></i>
+          </div>
+          <h3>Smart Tags</h3>
+          <p>Add tags to entries — #travel, #work, #family — and instantly filter your entire journal history.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <h3>Writing Streaks</h3>
+          <p>Build a daily writing habit. Track your streak, total entries, and words written — watch yourself grow.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4: HOW IT WORKS
+  ═══════════════════════════════════════ -->
+  <section class="hiw-section" id="how-it-works">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Simple by design</span>
+        <h2 class="section-title">Start in under a minute</h2>
+      </div>
+
+      <div class="hiw-steps">
+
+        <div class="hiw-step" data-aos="fade-up" data-aos-delay="0">
+          <div class="hiw-step-num">01</div>
+          <div class="hiw-step-content">
+            <h3>Create your free account</h3>
+            <p>Sign up with your email — no credit card, no subscription required to start.</p>
+          </div>
+        </div>
+
+        <div class="hiw-connector" data-aos="fade-up" data-aos-delay="100">
+          <i class="bi bi-arrow-right"></i>
+        </div>
+
+        <div class="hiw-step" data-aos="fade-up" data-aos-delay="200">
+          <div class="hiw-step-num">02</div>
+          <div class="hiw-step-content">
+            <h3>Write your first entry</h3>
+            <p>Open the editor, pick today's mood, and just start writing. There are no rules.</p>
+          </div>
+        </div>
+
+        <div class="hiw-connector" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-arrow-right"></i>
+        </div>
+
+        <div class="hiw-step" data-aos="fade-up" data-aos-delay="400">
+          <div class="hiw-step-num">03</div>
+          <div class="hiw-step-content">
+            <h3>Build your story</h3>
+            <p>Come back daily. Watch your timeline grow — months of you, in your own words.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5: MOOD PREVIEW (UI Showcase)
+  ═══════════════════════════════════════ -->
+  <section class="mood-preview-section" id="mood-preview">
+    <div class="container">
+      <div class="mood-preview-inner">
+
+        <div class="mood-text-col" data-aos="fade-right">
+          <span class="section-eyebrow">Mood Tracker</span>
+          <h2 class="section-title">How are you feeling today?</h2>
+          <p>
+            Every entry starts with a mood. Over weeks and months, Lumio shows
+            you a picture of your emotional life — patterns you never knew existed.
+          </p>
+          <a href="register.html" class="btn-primary-lumio mt-4 d-inline-block">
+            Try it yourself
+          </a>
+        </div>
+
+        <div class="mood-visual-col" data-aos="fade-left" data-aos-delay="150">
+          <div class="mood-card glass-card">
+            <p class="mood-card-label">How are you feeling today, KANNASURESH?</p>
+            <div class="mood-emoji-row">
+              <button class="mood-btn" data-mood="awful">😞</button>
+              <button class="mood-btn" data-mood="bad">😕</button>
+              <button class="mood-btn active" data-mood="okay">😌</button>
+              <button class="mood-btn" data-mood="good">😊</button>
+              <button class="mood-btn" data-mood="great">🤩</button>
+            </div>
+            <div class="mood-selected-label">Feeling peaceful</div>
+            <div class="mood-week">
+              <span class="mw-label">This week</span>
+              <div class="mw-dots">
+                <span class="mwd" data-m="good">😊</span>
+                <span class="mwd" data-m="great">🤩</span>
+                <span class="mwd" data-m="okay">😌</span>
+                <span class="mwd" data-m="bad">😕</span>
+                <span class="mwd" data-m="great">🤩</span>
+                <span class="mwd" data-m="okay">😌</span>
+                <span class="mwd today" data-m="okay">😌</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 6: TESTIMONIALS
+  ═══════════════════════════════════════ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-eyebrow">Real writers</span>
+        <h2 class="section-title">What our community says</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "Lumio changed how I process my days. Writing every night before bed
+            has become the best part of my routine."
+          </p>
+          <div class="testi-author">
+            <span class="testi-avatar">P</span>
+            <div>
+              <strong>Priya S.</strong>
+              <span>UX Designer, Bangalore</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "I've tried 6 journal apps. Lumio is the only one that actually feels
+            like mine. The mood tracker is genius."
+          </p>
+          <div class="testi-author">
+            <span class="testi-avatar">R</span>
+            <div>
+              <strong>Rahul M.</strong>
+              <span>Software Engineer, Hyderabad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card glass-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">
+            "The streak feature kept me going for 90 days straight. Reading back
+            those entries now — I can see how far I've come."
+          </p>
+          <div class="testi-author">
+            <span class="testi-avatar">A</span>
+            <div>
+              <strong>Anika T.</strong>
+              <span>Student, Chennai</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 7: FINAL CTA
+  ═══════════════════════════════════════ -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="cta-inner glass-card" data-aos="zoom-in">
+        <div class="aurora-blob blob-cta-1"></div>
+        <div class="aurora-blob blob-cta-2"></div>
+        <span class="cta-eyebrow">Begin today</span>
+        <h2 class="cta-title">Your story is worth writing.</h2>
+        <p class="cta-subtitle">
+          Every great life is made of small, honest moments.<br />
+          Start capturing yours with Lumio.
+        </p>
+        <a href="register.html" class="btn-primary-lumio btn-large">
+          <i class="bi bi-pencil-fill"></i> Create Your Free Journal
+        </a>
+        <p class="cta-note">No credit card. No ads. Just you and your words.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SECTION 8: FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="lumio-footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">Lumio</span>
+          </a>
+          <p>Your thoughts, your world, your light.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="register.html">Get Started</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="settings.html">Settings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Lumio. Built with ♥ by KANNASURESH.</p>
+        <p>All your entries are private and encrypted.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       BACK TO TOP BUTTON
+  ═══════════════════════════════════════ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up-short"></i>
+  </button>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCRIPTS — ORDER IS CRITICAL
+  ═══════════════════════════════════════════════ -->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Vanilla-Tilt.js (3D hover on journal card) -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Our JS files -->
+  <script src="assets/js/particles-config.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
