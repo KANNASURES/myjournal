@@ -384,3 +384,11 @@
   .hamburger        { display: flex; }
   .back-to-top      { bottom: var(--space-5); right: var(--space-5); }
 }
+/* ─── ACTIVE NAV LINK (added by JS on scroll) ───────────── */
+.nav-links a.active {
+  color: var(--accent-primary);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
