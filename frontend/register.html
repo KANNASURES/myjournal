@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Create your free Lumio journal account." />
+  <title>Create Account — Lumio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/auth.css" />
+</head>
+
+<body class="auth-body">
+
+  <!-- Aurora background blobs -->
+  <div class="aurora-blob auth-blob-1"></div>
+  <div class="aurora-blob auth-blob-2"></div>
+  <div class="aurora-blob auth-blob-3"></div>
+
+  <!-- Particles -->
+  <div id="particles-js"></div>
+
+  <!-- ── TOP BAR ── -->
+  <div class="auth-topbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">Lumio</span>
+    </a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+    </button>
+  </div>
+
+  <!-- ── MAIN AUTH WRAPPER ── -->
+  <main class="auth-main">
+
+    <!-- Side quote (desktop only) -->
+    <div class="auth-quote auth-quote-left"
+         data-aos="fade-right" data-aos-duration="900" data-aos-delay="200">
+      <blockquote>
+        <p>
+          "Journal writing is a voyage to the interior."
+        </p>
+        — Christina Baldwin
+      </blockquote>
+      <div class="quote-entries">
+        <div class="qe-item">
+          <i class="bi bi-shield-lock-fill"></i>
+          <div>
+            <strong>100% Private</strong>
+            <span>Only you can read this</span>
+          </div>
+        </div>
+        <div class="qe-item">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <div>
+            <strong>Start in 30 seconds</strong>
+            <span>No credit card needed</span>
+          </div>
+        </div>
+        <div class="qe-item">
+          <i class="bi bi-heart-fill"></i>
+          <div>
+            <strong>Free forever</strong>
+            <span>Write as much as you want</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-card glass-card" data-aos="fade-up" data-aos-duration="700">
+
+      <!-- Card Header -->
+      <div class="auth-card-header">
+        <div class="auth-icon-wrap">
+          <i class="bi bi-person-plus-fill"></i>
+        </div>
+        <h1 class="auth-title">Start your journal</h1>
+        <p class="auth-subtitle">Free forever. No credit card needed.</p>
+      </div>
+
+      <!-- Alert Box -->
+      <div class="auth-alert auth-alert-error" id="registerAlert" style="display:none;">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <span id="registerAlertMsg">Something went wrong. Please try again.</span>
+      </div>
+
+      <!-- Register Form -->
+      <form class="auth-form" id="registerForm" novalidate>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="regName" class="form-label-lumio">Full name</label>
+          <div class="input-wrap">
+            <i class="bi bi-person input-icon"></i>
+            <input
+              type="text"
+              id="regName"
+              name="name"
+              class="input-lumio"
+              placeholder="KANNASURESH"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <span class="field-error" id="nameError"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="regEmail" class="form-label-lumio">Email address</label>
+          <div class="input-wrap">
+            <i class="bi bi-envelope input-icon"></i>
+            <input
+              type="email"
+              id="regEmail"
+              name="email"
+              class="input-lumio"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <span class="field-error" id="regEmailError"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="regPassword" class="form-label-lumio">Password</label>
+          <div class="input-wrap">
+            <i class="bi bi-lock input-icon"></i>
+            <input
+              type="password"
+              id="regPassword"
+              name="password"
+              class="input-lumio"
+              placeholder="Min. 8 characters"
+              autocomplete="new-password"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="regPassword"
+              aria-label="Show password"
+            >
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <span class="field-error" id="regPasswordError"></span>
+
+          <!-- Password Strength Bar -->
+          <div class="strength-bar-wrap" id="strengthWrap" style="display:none;">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span class="strength-label" id="strengthLabel">Weak</span>
+          </div>
+
+          <!-- Password Requirements -->
+          <ul class="password-reqs" id="passwordReqs">
+            <li class="req" id="req-length">
+              <i class="bi bi-circle"></i> At least 8 characters
+            </li>
+            <li class="req" id="req-upper">
+              <i class="bi bi-circle"></i> One uppercase letter
+            </li>
+            <li class="req" id="req-number">
+              <i class="bi bi-circle"></i> One number
+            </li>
+            <li class="req" id="req-special">
+              <i class="bi bi-circle"></i> One special character
+            </li>
+          </ul>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="regConfirm" class="form-label-lumio">Confirm password</label>
+          <div class="input-wrap">
+            <i class="bi bi-lock-fill input-icon"></i>
+            <input
+              type="password"
+              id="regConfirm"
+              name="confirm"
+              class="input-lumio"
+              placeholder="Re-enter your password"
+              autocomplete="new-password"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              data-target="regConfirm"
+              aria-label="Show confirm password"
+            >
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+          <span class="field-error" id="confirmError"></span>
+        </div>
+
+        <!-- Terms checkbox -->
+        <div class="form-group">
+          <label class="checkbox-lumio">
+            <input type="checkbox" id="agreeTerms" name="terms" required />
+            <span class="checkmark"></span>
+            I agree to the <a href="#">Terms of Use</a> and
+            <a href="#">Privacy Policy</a>
+          </label>
+          <span class="field-error" id="termsError"></span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-primary-lumio btn-auth" id="registerBtn">
+          <span class="btn-text">
+            <i class="bi bi-pencil-fill"></i> Create My Journal
+          </span>
+          <span class="btn-spinner" style="display:none;">
+            <i class="bi bi-arrow-repeat spin"></i> Creating account...
+          </span>
+        </button>
+
+      </form>
+
+      <!-- Footer link -->
+      <p class="auth-switch">
+        Already have an account?
+        <a href="login.html">Sign in →</a>
+      </p>
+
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/particles-config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
