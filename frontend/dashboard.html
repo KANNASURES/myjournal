@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Dashboard — Lumio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+</head>
+
+<body class="dash-body">
+
+  <!-- ═══════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Lumio</span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- User Profile Snippet -->
+    <div class="sidebar-profile">
+      <div class="sp-avatar" id="sidebarAvatar">K</div>
+      <div class="sp-info">
+        <strong id="sidebarName">KANNASURESH</strong>
+        <span id="sidebarStreak">
+          <i class="bi bi-fire"></i> 21-day streak
+        </span>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="dashboard.html" class="sidebar-link active">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="write.html" class="sidebar-link">
+            <i class="bi bi-pencil-square"></i>
+            <span>New Entry</span>
+          </a>
+        </li>
+        <li>
+          <a href="entries.html" class="sidebar-link">
+            <i class="bi bi-journal-text"></i>
+            <span>All Entries</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <button class="theme-toggle sidebar-theme" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+      <a href="index.html" class="sidebar-link sidebar-logout">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Sign Out</span>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ═══════════════════════════════════════
+       MAIN CONTENT AREA
+  ═══════════════════════════════════════ -->
+  <div class="dash-main" id="dashMain">
+
+    <!-- ── TOP HEADER ── -->
+    <header class="dash-header">
+
+      <!-- Left: Hamburger + Greeting -->
+      <div class="dh-left">
+        <button class="dash-hamburger" id="dashHamburger" aria-label="Open menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="dh-greeting">
+          <h2 id="greetingText">Good morning, KANNASURESH 👋</h2>
+          <p id="greetingDate">Loading date...</p>
+        </div>
+      </div>
+
+      <!-- Right: Search + Actions -->
+      <div class="dh-right">
+        <!-- Search -->
+        <div class="dash-search">
+          <i class="bi bi-search"></i>
+          <input
+            type="text"
+            placeholder="Search entries..."
+            id="dashSearch"
+            aria-label="Search journal entries"
+          />
+        </div>
+        <!-- New Entry shortcut -->
+        <a href="write.html" class="btn-primary-lumio dh-new-btn">
+          <i class="bi bi-plus-lg"></i>
+          <span>New Entry</span>
+        </a>
+        <!-- Avatar -->
+        <div class="dh-avatar" id="dhAvatar">K</div>
+      </div>
+
+    </header>
+
+    <!-- ── DASHBOARD CONTENT ── -->
+    <div class="dash-content">
+
+      <!-- ── ROW 1: Stats ── -->
+      <div class="stats-row" data-aos="fade-up" data-aos-duration="600">
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon-wrap" style="--stat-color: var(--accent-primary);">
+            <i class="bi bi-journal-text"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" data-count="142">0</span>
+            <span class="stat-label">Total Entries</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon-wrap" style="--stat-color: var(--color-warning);">
+            <i class="bi bi-fire"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" data-count="21">0</span>
+            <span class="stat-label">Day Streak</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon-wrap" style="--stat-color: var(--color-success);">
+            <i class="bi bi-type"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" data-count="38450">0</span>
+            <span class="stat-label">Words Written</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon-wrap" style="--stat-color: var(--accent-secondary);">
+            <i class="bi bi-emoji-smile"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value stat-emoji">😊</span>
+            <span class="stat-label">This Month's Mood</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── ROW 2: Mood Tracker + Quick Write ── -->
+      <div class="dash-row-2" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+
+        <!-- Today's Mood -->
+        <div class="mood-today-card glass-card">
+          <div class="card-label-row">
+            <h3 class="card-section-title">
+              <i class="bi bi-emoji-heart-eyes"></i> Today's Mood
+            </h3>
+            <span class="card-date" id="moodCardDate">Today</span>
+          </div>
+
+          <p class="mood-question">How are you feeling right now?</p>
+
+          <div class="mood-picker">
+            <button class="mood-pick-btn" data-mood="awful"  data-label="Feeling awful">😞</button>
+            <button class="mood-pick-btn" data-mood="bad"    data-label="Not great">😕</button>
+            <button class="mood-pick-btn" data-mood="okay"   data-label="Just okay">😌</button>
+            <button class="mood-pick-btn" data-mood="good"   data-label="Doing well">😊</button>
+            <button class="mood-pick-btn" data-mood="great"  data-label="Amazing!">🤩</button>
+          </div>
+
+          <div class="mood-result" id="moodResult" style="display:none;">
+            <span class="mood-result-emoji" id="moodResultEmoji">😌</span>
+            <div>
+              <strong id="moodResultLabel">Just okay</strong>
+              <p>Logged for today. Keep writing! ✨</p>
+            </div>
+          </div>
+
+          <!-- Weekly mood history -->
+          <div class="week-mood-strip">
+            <span class="wms-label">This week</span>
+            <div class="wms-days">
+              <div class="wms-day">
+                <span class="wms-emoji">😊</span>
+                <span class="wms-name">Mon</span>
+              </div>
+              <div class="wms-day">
+                <span class="wms-emoji">🤩</span>
+                <span class="wms-name">Tue</span>
+              </div>
+              <div class="wms-day">
+                <span class="wms-emoji">😌</span>
+                <span class="wms-name">Wed</span>
+              </div>
+              <div class="wms-day">
+                <span class="wms-emoji">😕</span>
+                <span class="wms-name">Thu</span>
+              </div>
+              <div class="wms-day">
+                <span class="wms-emoji">🤩</span>
+                <span class="wms-name">Fri</span>
+              </div>
+              <div class="wms-day">
+                <span class="wms-emoji">😌</span>
+                <span class="wms-name">Sat</span>
+              </div>
+              <div class="wms-day today">
+                <span class="wms-emoji">—</span>
+                <span class="wms-name">Today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Write -->
+        <div class="quick-write-card glass-card">
+          <div class="card-label-row">
+            <h3 class="card-section-title">
+              <i class="bi bi-pencil-fill"></i> Quick Write
+            </h3>
+          </div>
+          <p class="quick-write-prompt" id="writingPrompt">
+            Loading today's prompt...
+          </p>
+          <textarea
+            class="quick-textarea"
+            id="quickTextarea"
+            placeholder="Start writing whatever is on your mind..."
+            rows="5"
+            maxlength="500"
+          ></textarea>
+          <div class="quick-write-footer">
+            <span class="char-count">
+              <span id="charCount">0</span> / 500
+            </span>
+            <div class="qw-actions">
+              <a href="write.html" class="btn-ghost qw-btn">
+                Full Editor <i class="bi bi-arrow-right"></i>
+              </a>
+              <button class="btn-primary-lumio qw-btn" id="quickSaveBtn">
+                <i class="bi bi-check-lg"></i> Save
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── ROW 3: Recent Entries + Sidebar Widgets ── -->
+      <div class="dash-row-3" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+
+        <!-- Recent Entries -->
+        <div class="recent-entries-col">
+          <div class="col-header">
+            <h3 class="card-section-title">
+              <i class="bi bi-clock-history"></i> Recent Entries
+            </h3>
+            <a href="entries.html" class="view-all-link">
+              View all <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="entries-list" id="entriesList">
+
+            <!-- Entry Card 1 -->
+            <article class="entry-card glass-card" data-aos="fade-up" data-aos-delay="0">
+              <div class="ec-top">
+                <div class="ec-meta">
+                  <span class="ec-mood">😌</span>
+                  <div>
+                    <span class="ec-date">Sunday, Sep 20, 2026</span>
+                    <span class="ec-tags">
+                      <span class="ec-tag">#peaceful</span>
+                      <span class="ec-tag">#morning</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="ec-actions">
+                  <a href="write.html" class="ec-action-btn" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <button class="ec-action-btn ec-delete" title="Delete" data-id="1">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                </div>
+              </div>
+              <h4 class="ec-title">Today was quiet and golden</h4>
+              <p class="ec-preview">
+                Woke up to soft rain. Made chai, opened the window, and just listened.
+                There's something beautiful about doing nothing perfectly...
+              </p>
+              <div class="ec-footer">
+                <span><i class="bi bi-type"></i> 142 words</span>
+                <a href="write.html" class="ec-read-more">Read more →</a>
+              </div>
+            </article>
+
+            <!-- Entry Card 2 -->
+            <article class="entry-card glass-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="ec-top">
+                <div class="ec-meta">
+                  <span class="ec-mood">🤩</span>
+                  <div>
+                    <span class="ec-date">Saturday, Sep 19, 2026</span>
+                    <span class="ec-tags">
+                      <span class="ec-tag">#achievement</span>
+                      <span class="ec-tag">#work</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="ec-actions">
+                  <a href="write.html" class="ec-action-btn" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <button class="ec-action-btn ec-delete" title="Delete" data-id="2">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                </div>
+              </div>
+              <h4 class="ec-title">Finally shipped the feature!</h4>
+              <p class="ec-preview">
+                Three weeks of debugging and it's finally live. The team celebrated
+                with dinner. Felt genuinely proud of what we built together...
+              </p>
+              <div class="ec-footer">
+                <span><i class="bi bi-type"></i> 218 words</span>
+                <a href="write.html" class="ec-read-more">Read more →</a>
+              </div>
+            </article>
+
+            <!-- Entry Card 3 -->
+            <article class="entry-card glass-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="ec-top">
+                <div class="ec-meta">
+                  <span class="ec-mood">😕</span>
+                  <div>
+                    <span class="ec-date">Friday, Sep 18, 2026</span>
+                    <span class="ec-tags">
+                      <span class="ec-tag">#reflection</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="ec-actions">
+                  <a href="write.html" class="ec-action-btn" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <button class="ec-action-btn ec-delete" title="Delete" data-id="3">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                </div>
+              </div>
+              <h4 class="ec-title">Not every day has to be perfect</h4>
+              <p class="ec-preview">
+                Felt off today. Couldn't focus, kept second-guessing everything.
+                Maybe rest is the answer. Maybe I'm just human...
+              </p>
+              <div class="ec-footer">
+                <span><i class="bi bi-type"></i> 96 words</span>
+                <a href="write.html" class="ec-read-more">Read more →</a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Right Widgets Column -->
+        <div class="widgets-col">
+
+          <!-- Mini Calendar -->
+          <div class="widget-card glass-card" data-aos="fade-left" data-aos-delay="100">
+            <div class="card-label-row">
+              <h3 class="card-section-title">
+                <i class="bi bi-calendar3"></i> Calendar
+              </h3>
+            </div>
+            <div class="mini-calendar" id="miniCalendar">
+              <!-- Built by JS -->
+            </div>
+          </div>
+
+          <!-- Writing Streak Widget -->
+          <div class="widget-card glass-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="card-label-row">
+              <h3 class="card-section-title">
+                <i class="bi bi-fire"></i> Streak
+              </h3>
+            </div>
+            <div class="streak-display">
+              <span class="streak-number" id="streakCount">21</span>
+              <span class="streak-unit">days</span>
+            </div>
+            <p class="streak-msg">
+              Keep it going! Write today to extend your streak 🔥
+            </p>
+            <div class="streak-dots" id="streakDots">
+              <!-- Built by JS: last 7 days dots -->
+            </div>
+          </div>
+
+          <!-- Tag Cloud Widget -->
+          <div class="widget-card glass-card" data-aos="fade-left" data-aos-delay="300">
+            <div class="card-label-row">
+              <h3 class="card-section-title">
+                <i class="bi bi-tags-fill"></i> Your Tags
+              </h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-cloud-item" style="--tag-size: 1.1rem">#peaceful</span>
+              <span class="tag-cloud-item" style="--tag-size: 0.9rem">#work</span>
+              <span class="tag-cloud-item" style="--tag-size: 1rem">#morning</span>
+              <span class="tag-cloud-item" style="--tag-size: 0.85rem">#gratitude</span>
+              <span class="tag-cloud-item" style="--tag-size: 1.15rem">#reflection</span>
+              <span class="tag-cloud-item" style="--tag-size: 0.9rem">#travel</span>
+              <span class="tag-cloud-item" style="--tag-size: 0.8rem">#family</span>
+              <span class="tag-cloud-item" style="--tag-size: 1rem">#achievement</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /dash-content -->
+
+  </div>
+  <!-- /dash-main -->
+
+  <!-- ── DELETE CONFIRM MODAL ── -->
+  <div class="lumio-modal-overlay" id="deleteModalOverlay" style="display:none;">
+    <div class="lumio-modal glass-card">
+      <div class="modal-icon-wrap danger">
+        <i class="bi bi-trash3-fill"></i>
+      </div>
+      <h3>Delete this entry?</h3>
+      <p>This action cannot be undone. Your entry will be permanently removed.</p>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="cancelDelete">Cancel</button>
+        <button class="btn-danger" id="confirmDelete">
+          <i class="bi bi-trash3"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
