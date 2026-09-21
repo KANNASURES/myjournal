@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Settings — Lumio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/pages/settings.css" />
+</head>
+
+<body class="dash-body">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Lumio</span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="sidebar-profile">
+      <div class="sp-avatar" id="sidebarAvatar">K</div>
+      <div class="sp-info">
+        <strong id="sidebarName">KANNASURESH</strong>
+        <span><i class="bi bi-fire"></i> 21-day streak</span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="write.html" class="sidebar-link">
+            <i class="bi bi-pencil-square"></i><span>New Entry</span>
+          </a>
+        </li>
+        <li>
+          <a href="entries.html" class="sidebar-link">
+            <i class="bi bi-journal-text"></i><span>All Entries</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html" class="sidebar-link active">
+            <i class="bi bi-gear-fill"></i><span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="theme-toggle sidebar-theme" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+      <a href="index.html" class="sidebar-link sidebar-logout">
+        <i class="bi bi-box-arrow-left"></i><span>Sign Out</span>
+      </a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ═══ MAIN ═══ -->
+  <div class="dash-main" id="dashMain">
+
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dh-left">
+        <button class="dash-hamburger" id="dashHamburger" aria-label="Open menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="dh-greeting">
+          <h2>Settings</h2>
+          <p>Manage your account and preferences</p>
+        </div>
+      </div>
+      <div class="dh-right">
+        <div class="dh-avatar">K</div>
+      </div>
+    </header>
+
+    <!-- Settings Content -->
+    <div class="dash-content settings-content">
+
+      <div class="settings-layout">
+
+        <!-- ── LEFT: Settings Nav ── -->
+        <nav class="settings-nav glass-card">
+          <ul>
+            <li>
+              <a href="#profile" class="settings-nav-link active">
+                <i class="bi bi-person-fill"></i> Profile
+              </a>
+            </li>
+            <li>
+              <a href="#security" class="settings-nav-link">
+                <i class="bi bi-shield-lock-fill"></i> Security
+              </a>
+            </li>
+            <li>
+              <a href="#preferences" class="settings-nav-link">
+                <i class="bi bi-sliders"></i> Preferences
+              </a>
+            </li>
+            <li>
+              <a href="#notifications" class="settings-nav-link">
+                <i class="bi bi-bell-fill"></i> Notifications
+              </a>
+            </li>
+            <li>
+              <a href="#data" class="settings-nav-link">
+                <i class="bi bi-database-fill"></i> Data & Privacy
+              </a>
+            </li>
+            <li>
+              <a href="#danger" class="settings-nav-link danger-link">
+                <i class="bi bi-exclamation-triangle-fill"></i> Danger Zone
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- ── RIGHT: Settings Panels ── -->
+        <div class="settings-panels">
+
+          <!-- ── SECTION: Profile ── -->
+          <section class="settings-section" id="profile">
+            <div class="settings-section-header">
+              <h3><i class="bi bi-person-fill"></i> Profile</h3>
+              <p>Update your name, bio, and profile picture</p>
+            </div>
+
+            <!-- Avatar Upload -->
+            <div class="avatar-upload-row">
+              <div class="avatar-large" id="avatarPreview">K</div>
+              <div class="avatar-upload-info">
+                <button class="btn-ghost avatar-upload-btn" id="avatarUploadBtn">
+                  <i class="bi bi-upload"></i> Upload photo
+                </button>
+                <input type="file" id="avatarInput" accept="image/*" style="display:none;" />
+                <p>JPG or PNG. Max size 2MB.</p>
+              </div>
+            </div>
+
+            <form class="settings-form" id="profileForm" novalidate>
+
+              <div class="settings-form-row">
+                <div class="settings-field">
+                  <label class="settings-label" for="settingsName">Full name</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-person input-icon"></i>
+                    <input
+                      type="text"
+                      id="settingsName"
+                      class="input-lumio"
+                      value="KANNASURESH"
+                    />
+                  </div>
+                </div>
+                <div class="settings-field">
+                  <label class="settings-label" for="settingsEmail">Email address</label>
+                  <div class="input-wrap">
+                    <i class="bi bi-envelope input-icon"></i>
+                    <input
+                      type="email"
+                      id="settingsEmail"
+                      class="input-lumio"
+                      value="kanna@example.com"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-field">
+                <label class="settings-label" for="settingsBio">Bio</label>
+                <textarea
+                  id="settingsBio"
+                  class="settings-textarea"
+                  placeholder="A little about yourself..."
+                  rows="3"
+                  maxlength="200"
+                >Writing my story, one day at a time. 🌙</textarea>
+                <span class="settings-hint">Max 200 characters</span>
+              </div>
+
+              <div class="settings-field">
+                <label class="settings-label" for="settingsJournalName">Journal name</label>
+                <div class="input-wrap">
+                  <i class="bi bi-journal-text input-icon"></i>
+                  <input
+                    type="text"
+                    id="settingsJournalName"
+                    class="input-lumio"
+                    value="My Lumio Journal"
+                  />
+                </div>
+                <span class="settings-hint">This appears on your dashboard header</span>
+              </div>
+
+              <div class="settings-form-actions">
+                <button type="submit" class="btn-primary-lumio" id="saveProfileBtn">
+                  <span class="btn-text"><i class="bi bi-check-lg"></i> Save Profile</span>
+                  <span class="btn-spinner" style="display:none;">
+                    <i class="bi bi-arrow-repeat spin"></i> Saving...
+                  </span>
+                </button>
+              </div>
+
+            </form>
+          </section>
+
+          <div class="settings-divider"></div>
+
+          <!-- ── SECTION: Security ── -->
+          <section class="settings-section" id="security">
+            <div class="settings-section-header">
+              <h3><i class="bi bi-shield-lock-fill"></i> Security</h3>
+              <p>Change your password and manage account security</p>
+            </div>
+
+            <form class="settings-form" id="passwordForm" novalidate>
+
+              <div class="settings-field">
+                <label class="settings-label" for="currentPassword">
+                  Current password
+                </label>
+                <div class="input-wrap">
+                  <i class="bi bi-lock input-icon"></i>
+                  <input
+                    type="password"
+                    id="currentPassword"
+                    class="input-lumio"
+                    placeholder="Enter current password"
+                  />
+                  <button type="button" class="toggle-password"
+                    data-target="currentPassword">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+                <span class="field-error" id="currentPassError"></span>
+              </div>
+
+              <div class="settings-form-row">
+                <div class="settings-field">
+                  <label class="settings-label" for="newPassword">
+                    New password
+                  </label>
+                  <div class="input-wrap">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input
+                      type="password"
+                      id="newPassword"
+                      class="input-lumio"
+                      placeholder="Min. 8 characters"
+                    />
+                    <button type="button" class="toggle-password"
+                      data-target="newPassword">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                  <span class="field-error" id="newPassError"></span>
+                </div>
+                <div class="settings-field">
+                  <label class="settings-label" for="confirmNewPassword">
+                    Confirm new password
+                  </label>
+                  <div class="input-wrap">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <input
+                      type="password"
+                      id="confirmNewPassword"
+                      class="input-lumio"
+                      placeholder="Re-enter new password"
+                    />
+                    <button type="button" class="toggle-password"
+                      data-target="confirmNewPassword">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                  <span class="field-error" id="confirmNewPassError"></span>
+                </div>
+              </div>
+
+              <div class="settings-form-actions">
+                <button type="submit" class="btn-primary-lumio" id="savePasswordBtn">
+                  <span class="btn-text">
+                    <i class="bi bi-shield-check"></i> Update Password
+                  </span>
+                  <span class="btn-spinner" style="display:none;">
+                    <i class="bi bi-arrow-repeat spin"></i> Updating...
+                  </span>
+                </button>
+              </div>
+
+            </form>
+          </section>
+
+          <div class="settings-divider"></div>
+
+          <!-- ── SECTION: Preferences ── -->
+          <section class="settings-section" id="preferences">
+            <div class="settings-section-header">
+              <h3><i class="bi bi-sliders"></i> Preferences</h3>
+              <p>Customise how Lumio looks and feels for you</p>
+            </div>
+
+            <div class="preferences-list">
+
+              <!-- Theme -->
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Theme</strong>
+                  <span>Choose between dark and light mode</span>
+                </div>
+                <div class="theme-radio-group">
+                  <label class="theme-radio-btn" id="themeDarkBtn">
+                    <input type="radio" name="theme" value="dark" checked />
+                    <i class="bi bi-moon-stars-fill"></i> Dark
+                  </label>
+                  <label class="theme-radio-btn" id="themeLightBtn">
+                    <input type="radio" name="theme" value="light" />
+                    <i class="bi bi-sun-fill"></i> Light
+                  </label>
+                </div>
+              </div>
+
+              <!-- Font size -->
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Editor font size</strong>
+                  <span>Adjust text size in the journal editor</span>
+                </div>
+                <div class="font-size-control">
+                  <button class="font-size-btn" id="fontDecrease" aria-label="Decrease font">
+                    <i class="bi bi-dash-lg"></i>
+                  </button>
+                  <span class="font-size-display" id="fontSizeDisplay">18px</span>
+                  <button class="font-size-btn" id="fontIncrease" aria-label="Increase font">
+                    <i class="bi bi-plus-lg"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Daily reminder toggle -->
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Daily writing reminder</strong>
+                  <span>Get a reminder to write every day</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="reminderToggle" checked />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+              <!-- Auto-save toggle -->
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Auto-save drafts</strong>
+                  <span>Automatically save your entry as you type</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="autosaveToggle" checked />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+              <!-- Word count toggle -->
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Show word count</strong>
+                  <span>Display live word count in the editor</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="wordcountToggle" checked />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+            </div>
+          </section>
+
+          <div class="settings-divider"></div>
+
+          <!-- ── SECTION: Notifications ── -->
+          <section class="settings-section" id="notifications">
+            <div class="settings-section-header">
+              <h3><i class="bi bi-bell-fill"></i> Notifications</h3>
+              <p>Control what emails Lumio sends you</p>
+            </div>
+
+            <div class="preferences-list">
+
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Weekly summary</strong>
+                  <span>Get a weekly email with your mood and writing stats</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="weeklySummary" checked />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Streak alerts</strong>
+                  <span>Be notified if your streak is about to break</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="streakAlerts" checked />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div class="pref-info">
+                  <strong>Product updates</strong>
+                  <span>Hear about new features and improvements</span>
+                </div>
+                <label class="lumio-toggle">
+                  <input type="checkbox" id="productUpdates" />
+                  <span class="toggle-track">
+                    <span class="toggle-thumb"></span>
+                  </span>
+                </label>
+              </div>
+
+            </div>
+          </section>
+
+          <div class="settings-divider"></div>
+
+          <!-- ── SECTION: Data & Privacy ── -->
+          <section class="settings-section" id="data">
+            <div class="settings-section-header">
+              <h3><i class="bi bi-database-fill"></i> Data & Privacy</h3>
+              <p>Export or manage your journal data</p>
+            </div>
+
+            <div class="data-actions-grid">
+
+              <div class="data-action-card glass-card">
+                <div class="dac-icon">
+                  <i class="bi bi-download"></i>
+                </div>
+                <div class="dac-info">
+                  <strong>Export journal</strong>
+                  <p>Download all your entries as a JSON file</p>
+                </div>
+                <button class="btn-ghost dac-btn" id="exportJsonBtn">
+                  Export JSON
+                </button>
+              </div>
+
+              <div class="data-action-card glass-card">
+                <div class="dac-icon">
+                  <i class="bi bi-file-earmark-text"></i>
+                </div>
+                <div class="dac-info">
+                  <strong>Export as PDF</strong>
+                  <p>Get a beautifully formatted PDF of your journal</p>
+                </div>
+                <button class="btn-ghost dac-btn" id="exportPdfBtn">
+                  Export PDF
+                </button>
+              </div>
+
+              <div class="data-action-card glass-card">
+                <div class="dac-icon privacy-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="dac-info">
+                  <strong>Privacy summary</strong>
+                  <p>Your data is never shared or sold. Ever.</p>
+                </div>
+                <a href="#" class="btn-ghost dac-btn">Read policy</a>
+              </div>
+
+            </div>
+          </section>
+
+          <div class="settings-divider"></div>
+
+          <!-- ── SECTION: Danger Zone ── -->
+          <section class="settings-section danger-section" id="danger">
+            <div class="settings-section-header">
+              <h3 class="danger-title">
+                <i class="bi bi-exclamation-triangle-fill"></i> Danger Zone
+              </h3>
+              <p>Irreversible actions. Please read carefully before proceeding.</p>
+            </div>
+
+            <div class="danger-actions">
+
+              <div class="danger-action-row">
+                <div class="danger-action-info">
+                  <strong>Clear all drafts</strong>
+                  <p>Remove all locally saved drafts from this device.</p>
+                </div>
+                <button class="btn-danger-outline" id="clearDraftsBtn">
+                  <i class="bi bi-trash3"></i> Clear drafts
+                </button>
+              </div>
+
+              <div class="danger-action-row">
+                <div class="danger-action-info">
+                  <strong>Delete all entries</strong>
+                  <p>Permanently delete every journal entry. This cannot be undone.</p>
+                </div>
+                <button class="btn-danger-outline" id="deleteAllEntriesBtn">
+                  <i class="bi bi-journal-x"></i> Delete all entries
+                </button>
+              </div>
+
+              <div class="danger-action-row danger-action-row--last">
+                <div class="danger-action-info">
+                  <strong>Delete account</strong>
+                  <p>
+                    Permanently delete your account and all data.
+                    This action is irreversible.
+                  </p>
+                </div>
+                <button class="btn-danger" id="deleteAccountBtn">
+                  <i class="bi bi-person-x-fill"></i> Delete account
+                </button>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+        <!-- /settings-panels -->
+      </div>
+      <!-- /settings-layout -->
+
+    </div>
+  </div>
+
+  <!-- ── SUCCESS TOAST ── -->
+  <div class="lumio-toast" id="settingsToast" style="display:none;">
+    <i class="bi bi-check-circle-fill"></i>
+    <span id="toastMessage">Settings saved!</span>
+  </div>
+
+  <!-- ── DANGER CONFIRM MODAL ── -->
+  <div class="lumio-modal-overlay" id="dangerModalOverlay" style="display:none;">
+    <div class="lumio-modal glass-card">
+      <div class="modal-icon-wrap danger">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+      </div>
+      <h3 id="dangerModalTitle">Are you sure?</h3>
+      <p id="dangerModalDesc">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="cancelDanger">Cancel</button>
+        <button class="btn-danger" id="confirmDanger">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/settings.js"></script>
+</body>
+</html>
