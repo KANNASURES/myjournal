@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Write Entry — Lumio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Quill.js Rich Text Editor -->
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+  <link rel="stylesheet" href="assets/css/pages/editor.css" />
+</head>
+
+<body class="dash-body">
+
+  <!-- ═══ SIDEBAR (same as dashboard) ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Lumio</span>
+      </a>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="sidebar-profile">
+      <div class="sp-avatar">K</div>
+      <div class="sp-info">
+        <strong>KANNASURESH</strong>
+        <span><i class="bi bi-fire"></i> 21-day streak</span>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="write.html" class="sidebar-link active">
+            <i class="bi bi-pencil-square"></i><span>New Entry</span>
+          </a>
+        </li>
+        <li>
+          <a href="entries.html" class="sidebar-link">
+            <i class="bi bi-journal-text"></i><span>All Entries</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear-fill"></i><span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="theme-toggle sidebar-theme" id="themeToggle" aria-label="Toggle theme">
+        <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+        <span id="themeLabel">Dark mode</span>
+      </button>
+      <a href="index.html" class="sidebar-link sidebar-logout">
+        <i class="bi bi-box-arrow-left"></i><span>Sign Out</span>
+      </a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <div class="dash-main" id="dashMain">
+
+    <!-- Top Header -->
+    <header class="dash-header">
+      <div class="dh-left">
+        <button class="dash-hamburger" id="dashHamburger" aria-label="Open menu">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="dh-greeting">
+          <h2>New Journal Entry</h2>
+          <p id="editorDateLabel">Loading...</p>
+        </div>
+      </div>
+      <div class="dh-right">
+        <!-- Auto-save indicator -->
+        <div class="autosave-indicator" id="autosaveIndicator">
+          <i class="bi bi-cloud" id="autosaveIcon"></i>
+          <span id="autosaveText">Draft</span>
+        </div>
+        <!-- Word count -->
+        <div class="word-count-badge">
+          <i class="bi bi-type"></i>
+          <span id="wordCount">0</span> words
+        </div>
+        <!-- Actions -->
+        <button class="btn-ghost editor-action-btn" id="discardBtn">
+          <i class="bi bi-x-lg"></i> Discard
+        </button>
+        <button class="btn-primary-lumio editor-action-btn" id="publishBtn">
+          <i class="bi bi-check-lg"></i> Save Entry
+        </button>
+      </div>
+    </header>
+
+    <!-- Editor Content -->
+    <div class="editor-content">
+
+      <!-- ── ENTRY META BAR ── -->
+      <div class="entry-meta-bar glass-card">
+
+        <!-- Title -->
+        <div class="meta-field meta-title-field">
+          <i class="bi bi-pencil meta-field-icon"></i>
+          <input
+            type="text"
+            id="entryTitle"
+            class="entry-title-input"
+            placeholder="Give your entry a title..."
+            maxlength="100"
+          />
+        </div>
+
+        <div class="meta-divider"></div>
+
+        <!-- Date Picker -->
+        <div class="meta-field">
+          <i class="bi bi-calendar3 meta-field-icon"></i>
+          <input
+            type="date"
+            id="entryDate"
+            class="meta-date-input"
+            aria-label="Entry date"
+          />
+        </div>
+
+        <div class="meta-divider"></div>
+
+        <!-- Mood Selector -->
+        <div class="meta-field">
+          <i class="bi bi-emoji-smile meta-field-icon"></i>
+          <select id="entryMood" class="meta-select" aria-label="Today's mood">
+            <option value="">Select mood...</option>
+            <option value="awful">😞 Awful</option>
+            <option value="bad">😕 Bad</option>
+            <option value="okay">😌 Okay</option>
+            <option value="good">😊 Good</option>
+            <option value="great">🤩 Great</option>
+          </select>
+        </div>
+
+        <div class="meta-divider"></div>
+
+        <!-- Tags Input -->
+        <div class="meta-field meta-tags-field">
+          <i class="bi bi-tags meta-field-icon"></i>
+          <div class="tags-input-wrap" id="tagsWrap">
+            <div class="tags-list" id="tagsList"></div>
+            <input
+              type="text"
+              id="tagInput"
+              class="tag-text-input"
+              placeholder="Add tag + Enter"
+              maxlength="20"
+            />
+          </div>
+        </div>
+
+        <div class="meta-divider"></div>
+
+        <!-- Photo Attach -->
+        <div class="meta-field">
+          <button class="attach-photo-btn" id="attachPhotoBtn" aria-label="Attach photo">
+            <i class="bi bi-image"></i>
+            <span>Photo</span>
+          </button>
+          <input
+            type="file"
+            id="photoInput"
+            accept="image/*"
+            style="display:none;"
+          />
+        </div>
+
+      </div>
+
+      <!-- ── ATTACHED PHOTO PREVIEW ── -->
+      <div class="photo-preview-bar" id="photoPreviewBar" style="display:none;">
+        <div class="photo-preview-inner">
+          <img id="photoPreviewImg" src="" alt="Attached photo" />
+          <button class="photo-remove-btn" id="removePhotoBtn" aria-label="Remove photo">
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── QUILL EDITOR ── -->
+      <div class="quill-wrap glass-card">
+        <div id="quillToolbar">
+          <span class="ql-formats">
+            <select class="ql-header">
+              <option value="1">Heading 1</option>
+              <option value="2">Heading 2</option>
+              <option value="3">Heading 3</option>
+              <option selected>Normal</option>
+            </select>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-bold"      title="Bold"></button>
+            <button class="ql-italic"    title="Italic"></button>
+            <button class="ql-underline" title="Underline"></button>
+            <button class="ql-strike"    title="Strikethrough"></button>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-blockquote" title="Quote"></button>
+            <button class="ql-list" value="ordered"  title="Ordered list"></button>
+            <button class="ql-list" value="bullet"   title="Bullet list"></button>
+          </span>
+          <span class="ql-formats">
+            <select class="ql-color"      title="Text color"></select>
+            <select class="ql-background" title="Highlight"></select>
+          </span>
+          <span class="ql-formats">
+            <button class="ql-link"  title="Link"></button>
+            <button class="ql-clean" title="Clear format"></button>
+          </span>
+          <!-- Focus Mode Toggle -->
+          <span class="ql-formats">
+            <button
+              type="button"
+              class="ql-custom-btn"
+              id="focusModeBtn"
+              title="Focus mode"
+            >
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+          </span>
+        </div>
+
+        <!-- Editor Container -->
+        <div id="quillEditor"></div>
+      </div>
+
+      <!-- ── WRITING PROMPT SUGGESTION ── -->
+      <div class="prompt-suggestion glass-card" id="promptSuggestion">
+        <i class="bi bi-lightbulb-fill"></i>
+        <span id="promptText">Need inspiration? Try: What made today different?</span>
+        <button class="prompt-refresh-btn" id="refreshPrompt" aria-label="New prompt">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+      </div>
+
+    </div>
+    <!-- /editor-content -->
+
+  </div>
+  <!-- /dash-main -->
+
+  <!-- ── DISCARD CONFIRM MODAL ── -->
+  <div class="lumio-modal-overlay" id="discardModalOverlay" style="display:none;">
+    <div class="lumio-modal glass-card">
+      <div class="modal-icon-wrap danger">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+      </div>
+      <h3>Discard this entry?</h3>
+      <p>You have unsaved changes. They will be permanently lost.</p>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="cancelDiscard">Keep Writing</button>
+        <button class="btn-danger" id="confirmDiscard">
+          <i class="bi bi-trash3"></i> Discard
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SUCCESS TOAST ── -->
+  <div class="lumio-toast" id="successToast" style="display:none;">
+    <i class="bi bi-check-circle-fill"></i>
+    <span>Entry saved successfully!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/editor.js"></script>
+</body>
+</html>
