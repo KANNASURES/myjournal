@@ -1,16 +1,20 @@
 /* ═══════════════════════════════════════════════════════════
    LUMIO — AUTH ROUTES
-   POST /api/auth/register
-   POST /api/auth/login
-   GET  /api/auth/me
+   POST /api/auth/register  → register new user
+   POST /api/auth/login     → login + get token
+   GET  /api/auth/me        → get current user (protected)
 ═══════════════════════════════════════════════════════════ */
 
-const express = require('express');
-const router  = express.Router();
+const express    = require('express');
+const router     = express.Router();
+const { register, login, getMe } = require('../controllers/auth.controller');
+const { protect }                = require('../middleware/auth.middleware');
 
-// Placeholder — full implementation in Phase 11
-router.get('/ping', function (req, res) {
-  res.json({ success: true, message: 'Auth routes active' });
-});
+/* ── Public routes (no token needed) ── */
+router.post('/register', register);
+router.post('/login',    login);
+
+/* ── Protected route (token required) ── */
+router.get('/me', protect, getMe);
 
 module.exports = router;
